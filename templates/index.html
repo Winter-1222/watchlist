@@ -2,18 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" type="text/css">
+    <link rel="icon" href="{{url_for('static', filename='favicon.ico')}}">
     <title>{{name}}'s WatchList</title>
 </head>
 <body>
+<img src="{{url_for('static', filename='images/cat.png')}}" alt="Avatar" class="avatar">
 <!--使用双括号获取值-->
 <h1>{{name}}'s WatchList</h1>
 <!--使用|过滤器获取长度-->
 <p>{{movies|length}} Titles</p>
-<ul>
+<ul class="movie-list">
 <!--    使用for语句需要搭配endfor-->
     {% for movie in movies  %}
-    <li>{{movie.title}} - {{movie.year}}</li>
+    <li class="movie-list li">{{movie.title}} - {{movie.year}}</li>
     {% endfor %}
 </ul>
+<img src="{{url_for('static', filename='images/totoro.gif')}}" alt="行走的龙猫" class="totoro">
 </body>
 </html>
