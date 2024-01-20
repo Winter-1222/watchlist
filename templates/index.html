@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{name}}'s WatchList</title>
+</head>
+<body>
+<!--使用双括号获取值-->
+<h1>{{name}}'s WatchList</h1>
+<!--使用|过滤器获取长度-->
+<p>{{movies|length}} Titles</p>
+<ul>
+<!--    使用for语句需要搭配endfor-->
+    {% for movie in movies  %}
+    <li>{{movie.title}} - {{movie.year}}</li>
+    {% endfor %}
+</ul>
+</body>
+</html>
