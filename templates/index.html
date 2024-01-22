@@ -9,7 +9,7 @@
 <body>
 <img src="{{url_for('static', filename='images/cat.png')}}" alt="Avatar" class="avatar">
 <!--使用双括号获取值-->
-<h1>{{name}}'s WatchList</h1>
+<h1>{{user.name}}'s WatchList</h1>
 <!--使用|过滤器获取长度-->
 <p>{{movies|length}} Titles</p>
 <ul class="movie-list">
