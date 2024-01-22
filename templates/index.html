@@ -5,12 +5,21 @@
 {% block content %}
 <!--使用|过滤器获取长度-->
 <p>{{movies|length}} Titles</p>
+<form method="post">
+    <label for="title">Name</label> <input type="text" name="title" id="title" autocomplete="off" required>
+    <label for="year">Year</label> <input type="text" name="year" id="year" autocomplete="off" required>
+    <input class="btn" type="submit" name="submit" value="Add">
+</form>
 <ul class="movie-list">
 <!--    使用for语句需要搭配endfor-->
     {% for movie in movies  %}
     <li class="movie-list li">
         {{movie.title}} - {{movie.year}}
         <span class="float-right">
+            <a class="btn" href="{{ url_for('edit', movie_id=movie.id) }}">Edit</a>
+            <form class="inline-form" method="post" action="{{ url_for('delete', movie_id=movie.id) }}">
+                <input class="btn" type="submit" name="delete" value="Delete" onclick="return confirm('确定删除吗?')">
+            </form>
             <a class="imdb" href="https://www.imdb.com/find?q={{ movie.title }}" target="_blank" title="Find this movie on IMDb">IMDb</a>
         </span>
     </li>
